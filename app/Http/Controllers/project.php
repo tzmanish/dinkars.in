@@ -27,8 +27,10 @@ class project extends Controller
 		
 		
 	public function about(){
+		$team = DB::select("select * from members");
 		$context = [
 			'view'=> 'about',
+			'team'=> $team,
 			];
 		return view('about', $context);
 	}
