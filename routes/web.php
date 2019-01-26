@@ -44,3 +44,7 @@ Route::match(['get', 'post'], 'admin/password/update', 'admin@update');
 
 
 Route::match(['get', 'post'], 'admin/member/add', 'team@addMember');
+
+Route::match(['get', 'post'], 'admin/member/edit', 'team@editMember');
+
+Route::match(['get', 'post'], 'admin/member/show', 'team@showMembers');

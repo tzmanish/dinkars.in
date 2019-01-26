@@ -49,11 +49,11 @@
 								<li class="active"><a href="#">Add Project</a></li>
 							</ul>
 
-							<li data-toggle="collapse" @if($view == 'addMember') class="active" @endif data-target="#team" class="collapsed">
+							<li data-toggle="collapse" @if($view == 'addMember' or $view == 'editMember' or $view == 'showMembers') class="active" @endif data-target="#team" class="collapsed">
 								<a href="#"><i class="fa fa-users fa-lg"></i> Team <span id="down-arrow"><i class="fas fa-chevron-down"></i></span></a>
 							</li>
-							<ul class="sub-menu collapse @if($view == 'addMember') show @endif" id="team">
-								<li ><a href="#">Edit Members</a></li>
+							<ul class="sub-menu collapse @if($view == 'addMember' or $view == 'editMember' or $view == 'showMembers') show @endif" id="team">
+								<li @if($view == 'editMember' or $view == 'showMembers') class="active" @endif><a href="{{url('admin/member/show')}}">Edit Members</a></li>
 								<li @if($view == 'addMember') class="active" @endif><a href="{{url('admin/member/add')}}">Add Member</a></li>
 							</ul>
 							

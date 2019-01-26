@@ -42,7 +42,7 @@
 							<label for="image" class="col-lg-4 col-form-label text-lg-right">{{ __('Image') }}</label>
 							
 							<div class="col-lg-4">
-								<input type="file" name="image" id="image" class="form-control-file" accept=".jpg,.jpeg,.png" required>
+								<input type="file" name="image" id="image" class="form-control-file" accept=".jpg,.jpeg,.png">
 							</div>
 							
 							<div class="col-lg-4 col-form-label" id="preview_status"></div>
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-lg-8 offset-lg-3">
+                            <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Add') }}
                                 </button>
@@ -88,8 +88,8 @@
 					
 					var reader = new FileReader();
 					reader.onload = function (e) {
-						if (e.total > 2000000) {
-							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 2mb.</font>");
+						if (e.total > 15000000) {
+							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 15mb.</font>");
 							$image = $("#image");
 							$image.val("");
 							$image.wrap('<form>').closest('form').get(0).reset();
