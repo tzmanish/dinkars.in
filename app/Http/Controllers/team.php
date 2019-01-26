@@ -28,7 +28,7 @@ class team extends Controller
 						$extension = $image_tmp->getClientOriginalExtension();
 						$filename = rand(111, 99999).'.'.$extension;
 						$image_path = 'images/members/'.$filename;
-						Image::make($image_tmp)->save($image_path);
+						Image::make($image_tmp)->fit(1000, 1000)->save($image_path);
 					}
 					else{
 						return redirect('admin/member/add')->with('flash_message_error', 'Upload failed due to invalid image file.');

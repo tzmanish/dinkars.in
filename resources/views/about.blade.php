@@ -8,7 +8,7 @@
 				<br>
 				<div class="col-md-10 offset-md-1">
 					<div class="card-container">
-						<div class="card" style="max-width: 18rem; margin:auto;">
+						<div class="card" style="max-width: 18rem;">
 						
 							<div class="front">
 								<div class="cover">
@@ -19,8 +19,9 @@
 								</div>
 								<div class="content">
 									<div class="main">
-										<h3 class="name">Rohit Dinkar</h3>
+										<h3 class="name" style="font-size: 24px; font-weight:400;">Rohit Dinkar</h3>
 										<p class="profession">B. Arch. IIT Roorkee</p>
+										<h5>founder</h5>
 									</div>
 								</div>
 							</div>
@@ -41,7 +42,7 @@
 				</div>
 				<div class="col-md-10 offset-md-1">
 					<div class="card-container">
-						<div class="card" style="max-width: 18rem; margin:auto;">
+						<div class="card" style="max-width: 18rem;">
 						
 							<div class="front">
 								<div class="cover">
@@ -52,7 +53,7 @@
 								</div>
 								<div class="content">
 									<div class="main">
-										<h3 class="name">Rohit Dinkar</h3>
+										<h3 class="name" style="font-size: 24px; font-weight:400;">Rohit Dinkar</h3>
 										<p class="profession">B. Arch. IIT Roorkee</p>
 									</div>
 								</div>
@@ -81,25 +82,28 @@
 			<hr><br>
 		</div>
 		@foreach ($team as $member)
-				<div class="col-md-3 col-sm-4">
+				<div class="col-md-4 col-sm-6">
 					<div class="card-container">
 						<div class="card">
 						
 							<div class="front">
 								<div class="cover">
 									<img src="
-									@if (file_exists(asset('images/members').$member->image)){{ asset('images/members') }}/{{ $member->image }} 
-									@else {{ asset('images/members/nomedia/nomedia.png') }} 
-									@endif"
-									/>
+									@if (file_exists(public_path('images/members/'.$member->image)))
+										{{ asset('images/members/'.$member->image) }}
+									@else 
+										{{ asset('images/members/nomedia/nomedia.png') }} 
+									@endif
+									"/>
 								</div>
 								<div class="user">
 									<img class="img-circle" src="
-									@if (file_exists(asset('images/members/'.$member->image)))
-										{{ asset('images/members/nomedia/nomedia.png') }} 
-									@else 
+									@if (file_exists(public_path('images/members/'.$member->image)))
 										{{ asset('images/members/'.$member->image) }}
-									@endif"/>
+									@else 
+										{{ asset('images/members/nomedia/nomedia.png') }} 
+									@endif
+									"/>
 								</div>
 								<div class="content">
 									<div class="main">

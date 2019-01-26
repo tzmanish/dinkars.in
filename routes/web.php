@@ -13,15 +13,15 @@
 
 
 
-Route::get('/', 'project@home');
+Route::get('/', 'publicController@home');
 
-Route::get('projects', 'project@projects');
+Route::get('projects', 'publicController@projects');
 
-Route::get('about', 'project@about');
+Route::get('about', 'publicController@about');
 
-Route::get('contact', 'project@contact');
+Route::get('contact', 'publicController@contact');
 
-Route::get('project/{p_id}', 'project@detail');
+Route::get('project/{p_id}', 'publicController@detail');
 
 
 

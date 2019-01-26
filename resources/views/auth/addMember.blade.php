@@ -88,8 +88,8 @@
 					
 					var reader = new FileReader();
 					reader.onload = function (e) {
-						if (e.total > 15000000) {
-							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 15mb.</font>");
+						if (e.total > 10000000) {
+							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 10mb.</font>");
 							$image = $("#image");
 							$image.val("");
 							$image.wrap('<form>').closest('form').get(0).reset();
