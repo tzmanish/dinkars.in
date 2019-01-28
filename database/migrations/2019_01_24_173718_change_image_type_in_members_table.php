@@ -26,7 +26,7 @@ class ChangeImageTypeInMembersTable extends Migration
     public function down()
     {
         Schema::table('members', function (Blueprint $table) {
-			$table->binary('image')->change();
+			// $table->binary('image')->change();
         });
     }
 }

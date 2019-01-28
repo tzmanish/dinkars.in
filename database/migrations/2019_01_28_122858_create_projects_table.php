@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMembersTable extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('picture')->default("nomedia/nomedia.png");
-			$table->string('role')->nullable();
             $table->longText('description')->nullable();
+            $table->string('client')->nullable();
+            $table->integer('area')->nullable();
+            $table->integer('cost')->nullable();
+            $table->string('cover')->default("nomedia/nomedia.png")->nullable();
+            $table->date('started_on');
+            $table->date('completed_on')->nullable();
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +35,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('projects');
     }
 }

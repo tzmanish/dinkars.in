@@ -450,6 +450,7 @@ class ComposerStaticInitbeeac2d3502f3c8c48d8dd727119a96b
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\admin' => __DIR__ . '/../..' . '/app/Http/Controllers/admin.php',
         'App\\Http\\Controllers\\project' => __DIR__ . '/../..' . '/app/Http/Controllers/project.php',
+        'App\\Http\\Controllers\\publicController' => __DIR__ . '/../..' . '/app/Http/Controllers/publicController.php',
         'App\\Http\\Controllers\\team' => __DIR__ . '/../..' . '/app/Http/Controllers/team.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

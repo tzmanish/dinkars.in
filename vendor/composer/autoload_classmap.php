@@ -16,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\admin' => $baseDir . '/app/Http/Controllers/admin.php',
     'App\\Http\\Controllers\\project' => $baseDir . '/app/Http/Controllers/project.php',
+    'App\\Http\\Controllers\\publicController' => $baseDir . '/app/Http/Controllers/publicController.php',
     'App\\Http\\Controllers\\team' => $baseDir . '/app/Http/Controllers/team.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
