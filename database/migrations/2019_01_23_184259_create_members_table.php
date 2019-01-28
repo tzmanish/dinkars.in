@@ -16,7 +16,7 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('picture')->default("nomedia/nomedia.png");
+            $table->string('image')->default("nomedia/nomedia.png");
 			$table->string('role')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
