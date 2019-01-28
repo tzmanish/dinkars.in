@@ -32,8 +32,8 @@
 			  <li @if($view == 'home') id="active" @endif >
 				<a class="nav-link @if($view == 'home') text-dark @endif" href="/" id="navlink">Home</a>
 			  </li>
-			  <li @if($view == 'projects') id="active" @endif >
-				<a class="nav-link @if($view == 'projects') text-dark @endif " href="/projects" id="navlink">Projects</a>
+			  <li @if($view == 'projects' or $view == 'detail') id="active" @endif >
+				<a class="nav-link @if($view == 'projects' or $view == 'detail') text-dark @endif " href="/projects" id="navlink">Projects</a>
 			  </li>
 			  <li @if($view == 'about' ) id="active" @endif >
 				<a class="nav-link @if($view == 'about') text-dark @endif " href="/about" id="navlink">About</a>

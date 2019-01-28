@@ -45,9 +45,9 @@ class publicController extends Controller
 		
 		
 	public function detail($p_id){
-		$proj = DB::select("select * from projects where id=$p_id");
+		$project = DB::select("select * from projects where id=$p_id");
 		$context = [
-			'project'=> $proj,
+			'project'=> $project,
 			'view'=> 'detail',
 			];
 		return view('detail', $context);

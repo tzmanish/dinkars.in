@@ -1,137 +1,149 @@
-
 /* entire container, keeps perspective */
 .card-container {
-	  -webkit-perspective: 800px;
-   -moz-perspective: 800px;
-     -o-perspective: 800px;
-        perspective: 800px;
-        margin-bottom: 30px;
-}
-/* flip the pane when hovered */
-.card-container:not(.manual-flip):hover .card,
-.card-container.hover.manual-flip .card{
-	-webkit-transform: rotateY( 180deg );
--moz-transform: rotateY( 180deg );
- -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+    margin-bottom: 30px;
 }
 
+/* flip the pane when hovered */
+.card-container:not(.manual-flip):hover .card,
+.card-container.hover.manual-flip .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
 
 .card-container.static:hover .card,
 .card-container.static.hover .card {
-	-webkit-transform: none;
--moz-transform: none;
- -o-transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
     transform: none;
 }
+
 /* flip speed goes here */
 .card {
-	 -webkit-transition: -webkit-transform .5s;
-   -moz-transition: -moz-transform .5s;
-     -o-transition: -o-transform .5s;
-        transition: transform .5s;
--webkit-transform-style: preserve-3d;
-   -moz-transform-style: preserve-3d;
-     -o-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-	position: relative;
+    -webkit-transition: -webkit-transform 0.5s;
+    -moz-transition: -moz-transform 0.5s;
+    -o-transition: -o-transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
 }
 
 /* hide back of pane during swap */
-.front, .back {
-	-webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-     -o-backface-visibility: hidden;
-        backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #FFF;
+.front,
+.back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
+    z-index: 2;
 }
 
 /* back, initially hidden pane */
 .back {
-		-webkit-transform: rotateY( 180deg );
-   -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    z-index: 3;
 }
 
 /*        Style       */
 
-
-.card{
+.card {
     border-radius: 4px;
-	border:none !important;
-	max-width: 14rem; 
-	margin:auto;
+    border: none !important;
+    max-width: 14rem;
+    margin: auto;
 }
-.card-container, .front, .back {
-	width: 100%;
-	height: 300px;
-	border-radius: 4px;
+
+.card-container,
+.front,
+.back {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
 }
-.card .cover{
+
+.card .cover {
     height: 105px;
     overflow: hidden;
     border-radius: 4px 4px 0 0;
 }
-.card .cover img{
+
+.card .cover img {
     width: 100%;
 }
 
-.img-circle{
-  display: block;
-  margin: -55px auto 0;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #ddd;
-  height: 120px;
-  width: 120px;
+.img-circle {
+    display: block;
+    margin: -55px auto 0;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ddd;
+    height: 120px;
+    width: 120px;
 }
+
 .card .content .main {
     width: 90%;
     margin: auto;
     padding: 0 10%;
-	overflow: auto;
+    overflow: auto;
 }
+
 .card .back .content .main {
     height: 180px;
 }
-.main p{
-	margin:auto;
-	}
+
+.main p {
+    margin: auto;
+}
+
 .card .name {
     font-size: 18px;
     line-height: 28px;
-	font-weight:500;
+    font-weight: 500;
     margin: 10px 0 0;
     text-align: center;
     text-transform: capitalize;
 }
-.card h5{
+
+.card h5 {
     font-size: 14px;
-	font-weight:700;
-	margin-top:0 !important;
+    font-weight: 700;
+    margin-top: 0 !important;
     line-height: 16px;
     margin: 10px 0 0;
     text-align: center;
     text-transform: capitalize;
 }
-.card .profession{
+
+.card .profession {
     color: #999999;
     text-align: center;
     font-size: 14px;
 }
-.card .motto{
-    border-bottom: 1px solid #EEEEEE;
+
+.card .motto {
+    border-bottom: 1px solid #eeeeee;
     color: #999999;
     font-size: 14px;
     font-weight: 400;
@@ -140,56 +152,59 @@
     text-transform: capitalize;
 }
 
-
 /*       Fix bug for IE      */
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .front, .back{
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .front,
+    .back {
         -ms-backface-visibility: visible;
         backface-visibility: visible;
     }
 
     .back {
         visibility: hidden;
-        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
+        -ms-transition: all 0.2s cubic-bezier(0.92, 0.01, 0.83, 0.67);
     }
-    .front{
+
+    .front {
         z-index: 4;
     }
+
     .card-container:not(.manual-flip):hover .back,
-    .card-container.manual-flip.hover .back{
+    .card-container.manual-flip.hover .back {
         z-index: 5;
         visibility: visible;
     }
 }
 
-
-
 /* other things*/
 
-#content{	
+#content {
     display: flex;
 }
-#full-height{
-	margin:0;
-	padding:0;
-	flex:1;
-	display:flex;
-}
 
-#leftpane{
-	background-image: -webkit-linear-gradient(330deg, #ffc107 0%, #f5576c 100%);
-	background-image: linear-gradient(120deg, #ffc107 0%, #fd7e14 100%);
+#full-height {
+    margin: 0;
+    padding: 0;
     flex: 1;
-	overflow-x:hidden;
+    display: flex;
 }
 
-#memberspane{
-	padding:0;
-	margin:0;
-	overflow-x:hidden;
+#leftpane {
+    background-image: -webkit-linear-gradient(330deg, #ffc107 0%, #f5576c 100%);
+    background-image: linear-gradient(120deg, #ffc107 0%, #fd7e14 100%);
+    flex: 1;
+    overflow-x: hidden;
 }
 
-h1{
-	font-weight:200 !important;
-} 
+#memberspane {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-weight: 200 !important;
+}

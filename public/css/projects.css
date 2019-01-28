@@ -1,0 +1,9 @@
+.card{
+  margin:15px;
+}
+
+#card-link,
+#card-link:hover {
+  color: inherit;
+  text-decoration: none;
+}

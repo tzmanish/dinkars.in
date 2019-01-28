@@ -1,9 +1,23 @@
-@extends('layouts/public')
-@section('title', 'Detail')
+@extends('layouts/public') 
+@section('title', 'Detail') 
 @section('body')
 
 
-
-
-
-@endsection('body')
+<div class="card bg-dark text-white">
+  <img class="card-img" src="{{ asset('images/members/'.$project[0]->cover)}}" alt="image">
+  <div class="card-img-overlay">
+    <h5 class="card-title">{{$project[0]->name}}</h5>
+    <p class="card-text">{{$project[0]->description}}</p>
+    <p class="card-text">{{$project[0]->client}}</p>
+    <p class="card-text">{{$project[0]->area}}</p>
+    <p class="card-text">{{$project[0]->cost}}</p>
+    <p class="card-text">{{$project[0]->started_on}}</p>
+    <p class="card-text">@if ($project[0]->completed_on)
+        {{$project[0]->completed_on}}
+    @else
+        ONGOING
+    @endif</p>
+    <p class="card-text">{{$project[0]->location}}</p>
+  </div>
+</div>
+@endsection
