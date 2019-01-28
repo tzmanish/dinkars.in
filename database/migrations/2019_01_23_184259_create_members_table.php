@@ -18,7 +18,7 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->string('image')->default("nomedia/nomedia.png");
 			$table->string('role')->nullable();
-            $table->longText('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -48,3 +48,10 @@ Route::match(['get', 'post'], 'admin/member/add', 'team@addMember');
 Route::match(['get', 'post'], 'admin/member/edit', 'team@editMember');
 
 Route::match(['get', 'post'], 'admin/member/show', 'team@showMembers');
+
+
+Route::match(['get', 'post'], 'admin/project/add', 'projectController@addProject');
+
+Route::match(['get', 'post'], 'admin/project/edit', 'projectController@editProject');
+
+Route::match(['get', 'post'], 'admin/project/show', 'projectController@showProjects');
