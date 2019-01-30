@@ -110,11 +110,17 @@
 }
 
 .card .back .content .main {
-    height: 180px;
+    height: 250px;
 }
 
 .main p {
     margin: auto;
+}
+
+.back p{
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .card .name {

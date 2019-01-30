@@ -64,23 +64,6 @@
 							</div>
 						</div>
 
-						{{-- <div class="form-group row">
-							<label for="started_on" class="col-lg-4 col-form-label text-lg-right">{{ __('Started On')
-                                }}</label>
-
-							<div class="col-lg-6">
-								<input class="form-control" type="date" id="started_on" name="started_on" required>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="completed_on" class="col-lg-4 col-form-label text-lg-right">{{ __('Completed On') }}</label>
-
-							<div class="col-lg-6">
-								<input class="form-control" type="date" id="completed_on" name="completed_on">
-							</div>
-						</div> --}}
-
 						<div class="form-group row">
 							<label for="location" class="col-lg-4 col-form-label text-lg-right">{{ __('Location') }}</label>
 							<div class="col-lg-6 input-group">
@@ -112,13 +95,29 @@
 								<textarea id="description" placeholder="Tell me something about you." class="form-control" name="description"></textarea>
 							</div>
 						</div>
+
+						<div class="form-group row">
+							<label for="type" class="col-lg-4 col-form-label text-lg-right">{{ __('Select Tags:') }}</label>
+							<div class="col-lg-6" id="typeList">
+
+								@foreach ($types as $type)
+										<label id="typeOption"><input type="checkbox" name="type[]" value="{{$type->id}}">{{$type->name}}</label>
+								@endforeach
+							
+							</div>
+							<label for="addTag" class="col-lg-4 col-form-label text-lg-right">{{ __('Add More Tags') }}</label>
+							<div class="col-lg-6 input-group">
+								<input id="addTag" type="text" class="form-control">
+								<button class="input-group-append" id="submitTag">add tag</button>
+							</div>
+							<div  class="col-lg-6 offset-lg-4" id="current_status"></div>
+						</div>
 						
 						<div class="form-group row mb-0">
 							<div class="col-lg-6 offset-lg-4">
-								<button type="submit" class="btn btn-primary">{{ __('Add') }}</button>
+								<button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
 							</div>
 						</div>
-						
 					</form>
 				</div>
 			</div>
@@ -158,6 +157,29 @@
 				$('#uploadedimage').removeAttr('src'); 
 			} 
 		}; 
+
+
+
+		$("#submitTag").click(function(event){
+			event.preventDefault();
+			var tag = $("#addTag").val();
+			if(!tag){
+				$("#current_status").html("<font color=#ffc107><i class='fas fa-exclamation-circle'></i> feed me</font>");
+				return;
+			}
+			$.ajax({
+				type:'get',
+				url:'type/add',
+				data:{type:tag},
+				success:function(resp){
+					$("#current_status").html("<font color=#28a745><i class='fas fa-check-circle'></i> tag added</font>");
+					$('#typeList').append('<label id="typeOption"><input type="checkbox" name="type[]" value="'+resp+'" checked>'+tag+'</label>');
+				}, 
+				error:function(resp){
+					$("#current_status").html("<font color=#28a745><i class='fas fa-exclamation-circle'></i> tag already axist</font>");
+				}
+			});
+		});
 	});
 
 @endsection

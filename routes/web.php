@@ -55,3 +55,5 @@ Route::match(['get', 'post'], 'admin/project/add', 'projectController@addProject
 Route::match(['get', 'post'], 'admin/project/edit', 'projectController@editProject');
 
 Route::match(['get', 'post'], 'admin/project/show', 'projectController@showProjects');
+
+Route::get('admin/project/type/add', 'projectController@addType');

@@ -17,7 +17,7 @@ class publicController extends Controller
 		
 		
 	public function projects(){
-		$project_list = DB::select("select * from projects");
+		$project_list = DB::table('projects')->get();
 		$context = [
 			'project_list'=> $project_list,
 			'view'=> 'projects',
@@ -27,7 +27,7 @@ class publicController extends Controller
 		
 		
 	public function about(){
-		$team = DB::select("select * from members");
+		$team = DB::table('members')->get();
 		$context = [
 			'view'=> 'about',
 			'team'=> $team,
@@ -45,7 +45,7 @@ class publicController extends Controller
 		
 		
 	public function detail($p_id){
-		$project = DB::select("select * from projects where id=$p_id");
+		$project = DB::table('projects')->where('id', $p_id)->first();
 		$context = [
 			'project'=> $project,
 			'view'=> 'detail',

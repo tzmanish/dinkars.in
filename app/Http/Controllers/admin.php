@@ -68,7 +68,7 @@ class admin extends Controller
 		}
 	}
 	
-    public function check(Request $request){
+	public function check(Request $request){
 		if(Session::has('adminSession')){
 			$data = $request->all();
 			$password = $data['current'];

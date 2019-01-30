@@ -21,7 +21,7 @@
 							<div class="main">
 								<h3 class="name" style="font-size: 24px; font-weight:400;">Rohit Dinkar</h3>
 								<p class="profession">B. Arch. IIT Roorkee</p>
-								<h5>founder</h5>
+								<h5>Director</h5>
 							</div>
 						</div>
 					</div>
@@ -32,8 +32,7 @@
 						</div>
 						<div class="content">
 							<div class="main row scrollbar-black">
-								<p class="text-center">vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision
-									vision vision vision vision vision vision vision vision vision vision </p>
+								<p class="text-center">" Minima ex sit totam natus saepe fugit quia tempora laboriosam. Qui ut quis. Voluptatem excepturi sapiente dolorum aspernatur molestiae doloremque id omnis. Libero eaque cupiditate est molestiae reprehenderit sed autem dolor. "</p>
 							</div>
 						</div>
 					</div>
@@ -54,20 +53,20 @@
 						</div>
 						<div class="content">
 							<div class="main">
-								<h3 class="name" style="font-size: 24px; font-weight:400;">Rohit Dinkar</h3>
-								<p class="profession">B. Arch. IIT Roorkee</p>
+								<h3 class="name" style="font-size: 24px; font-weight:400;">Shobhit Dinkar</h3>
+								<p class="profession">B. Tech. Mechanical Engg.</p>
+								<h5>Co-director</h5>
 							</div>
 						</div>
 					</div>
 
 					<div class="back">
 						<div class="header">
-							<h5 class="motto">Rohit Dinkar</h5>
+							<h5 class="motto">Shobhit Dinkar</h5>
 						</div>
 						<div class="content">
 							<div class="main row scrollbar-black">
-								<p class="text-center">vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision vision
-									vision vision vision vision vision vision vision vision vision vision </p>
+								<p class="text-center">" Omnis occaecati autem sunt quibusdam. Culpa quas quo fugit aut voluptatem sit rerum tempora distinctio. Qui iusto maiores dolor quibusdam in amet eaque sunt est. Minima ex sit totam natus saepe fugit quia tempora laboriosam. Qui ut quis. Voluptatem excepturi sapiente dolorum aspernatur molestiae doloremque id omnis. Libero eaque cupiditate est molestiae reprehenderit sed autem dolor. "</p>
 							</div>
 						</div>
 					</div>
