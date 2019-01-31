@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
 use App\Project;
 use App\Type;
 use Session;
@@ -44,10 +43,14 @@ class projectController extends Controller
         $project->cover = $filename;
 
         $project->save();
+
+        $type = Type::find($data['type']);
+        $project->types()->attach($type);
+
         return redirect('admin/project/add')->with('flash_message_success', 'Upload successful.');
       }
 
-		  $types = DB::table('types')->get();
+		  $types = Type::all();
       $context = [
         'view' => 'addProject',
         'types' => $types,
@@ -65,7 +68,7 @@ class projectController extends Controller
         $type->name = $data['type'];
         $result = $type->save();
         if($result){
-          $id = DB::table('types')->where('name', $data['type'])->value('id');
+          $id = Type::where('name', $data['type'])->value('id');
           echo $id; die;
         }
         echo $result; die;

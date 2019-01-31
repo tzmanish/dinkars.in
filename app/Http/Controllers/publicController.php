@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
+use App\Project;
+use App\Member;
 
 class publicController extends Controller
 {
@@ -17,7 +18,7 @@ class publicController extends Controller
 		
 		
 	public function projects(){
-		$project_list = DB::table('projects')->get();
+		$project_list = Project::get();
 		$context = [
 			'project_list'=> $project_list,
 			'view'=> 'projects',
@@ -27,7 +28,7 @@ class publicController extends Controller
 		
 		
 	public function about(){
-		$team = DB::table('members')->get();
+		$team = Member::get();
 		$context = [
 			'view'=> 'about',
 			'team'=> $team,
@@ -44,8 +45,8 @@ class publicController extends Controller
 	}
 		
 		
-	public function detail($p_id){
-		$project = DB::table('projects')->where('id', $p_id)->first();
+	public function detail($id){
+		$project = Project::with('types')->find($id);
 		$context = [
 			'project'=> $project,
 			'view'=> 'detail',

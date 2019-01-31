@@ -7,6 +7,11 @@
   <img class="card-img" src="{{ asset('images/projects/'.$project->cover)}}" alt="image">
   <div class="card-img-overlay">
     <h5 class="card-title">{{$project->name}}</h5>
+    <ul>
+    @foreach($project->types as $type)
+    <li>{{ $type->name }}</li>
+    @endforeach
+    </ul>
     <p class="card-text">{{$project->description}}</p>
     <p class="card-text">{{$project->client}}</p>
     <p class="card-text">{{$project->area}}</p>

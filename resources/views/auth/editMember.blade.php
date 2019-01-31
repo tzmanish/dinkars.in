@@ -16,17 +16,17 @@
 		</div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Add Team Member') }}</div>
+                <div class="card-header">{{ $member->name }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('admin/member/add') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('admin/member/update') }}" enctype="multipart/form-data">
                         @csrf
-
+						<input type="hidden" id="memberId" name="id" value="{{$member->id}}">
                         <div class="form-group row">
                             <label for="name" class="col-lg-4 col-form-label text-lg-right">{{ __('Name') }}</label>
 
                             <div class="col-lg-6">
-                                <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                <input id="name" type="text" class="form-control" value="{{$member->name}}" name="name" required autofocus>
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@
                             <label for="role" class="col-lg-4 col-form-label text-lg-right">{{ __('Role') }}</label>
 
                             <div class="col-lg-6">
-                                <input id="role" type="text" placeholder="Civil Engineer/ Interior Designer etc." class="form-control" name="role" required>
+                                <input id="role" type="text" value="{{$member->role}}" class="form-control" name="role" required>
                             </div>
                         </div>
 												
@@ -42,13 +42,13 @@
 							<label for="image" class="col-lg-4 col-form-label text-lg-right">{{ __('Image') }}</label>
 							
 							<div class="col-lg-4">
-								<input type="file" name="image" id="image" class="form-control-file" accept=".jpg,.jpeg,.png">
+							<input type="file" name="image" id="image" class="form-control-file" accept=".jpg,.jpeg,.png">
 							</div>
 							
 							<div class="col-lg-4 col-form-label" id="preview_status"></div>
 							
 							<div class="col-lg-6 offset-lg-4" id="preview">
-								<img id="uploadedimage" width="100%" />
+								<img src="{{asset('images/members/'.$member->image)}}" id="uploadedimage" width="100%" />
 							</div>
 						</div>
 
@@ -56,14 +56,14 @@
                             <label for="description" class="col-lg-4 col-form-label text-lg-right">{{ __('Description') }}</label>
 
                             <div class="col-lg-6">
-                                <textarea id="description" placeholder="Tell me something about you." class="form-control" name="description"></textarea>
+                                <textarea id="description" value="{{$member->description}}" class="form-control" name="description"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Add') }}
+                                    {{ __('Update') }}
                                 </button>
                             </div>
                         </div>
@@ -88,8 +88,8 @@
 					
 					var reader = new FileReader();
 					reader.onload = function (e) {
-						if (e.total > 12000000) {
-							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 12mb.</font>");
+						if (e.total > 10000000) {
+							$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large, maximum allowed size is 10mb.</font>");
 							$image = $("#image");
 							$image.val("");
 							$image.wrap('<form>').closest('form').get(0).reset();

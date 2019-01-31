@@ -92,7 +92,7 @@
 							<label for="description" class="col-lg-4 col-form-label text-lg-right">{{ __('Description') }}</label>
 
 							<div class="col-lg-6">
-								<textarea id="description" placeholder="Tell me something about you." class="form-control" name="description"></textarea>
+								<textarea id="description" class="form-control" name="description"></textarea>
 							</div>
 						</div>
 

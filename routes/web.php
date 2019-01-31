@@ -21,7 +21,7 @@ Route::get('about', 'publicController@about');
 
 Route::get('contact', 'publicController@contact');
 
-Route::get('project/{p_id}', 'publicController@detail');
+Route::get('project/{id}', 'publicController@detail');
 
 
 
@@ -45,9 +45,14 @@ Route::match(['get', 'post'], 'admin/password/update', 'admin@update');
 
 Route::match(['get', 'post'], 'admin/member/add', 'team@addMember');
 
-Route::match(['get', 'post'], 'admin/member/edit', 'team@editMember');
-
 Route::match(['get', 'post'], 'admin/member/show', 'team@showMembers');
+
+Route::get('admin/member/delete', 'team@deleteMember');
+
+Route::get('admin/member/edit/{id}', 'team@editMember');
+
+Route::post('admin/member/update', 'team@updateMember');
+
 
 
 Route::match(['get', 'post'], 'admin/project/add', 'projectController@addProject');
