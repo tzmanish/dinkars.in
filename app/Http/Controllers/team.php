@@ -34,9 +34,9 @@ class team extends Controller
 						return redirect('admin/member/add')->with('flash_message_error', 'Upload failed due to invalid image file.');
 					}
 				} else {
-					$filename = "nomedia/nomedia.png";
+					$image_path = "images/nomedia/nomedia.png";
 				}
-				$member->image = $filename;
+				$member->image = $image_path;
 
 				$member->save();
 				return redirect('admin/member/add')->with('flash_message_success', 'Upload successful.');
@@ -102,11 +102,11 @@ class team extends Controller
 					$filename = rand(111, 99999) . '.' . $extension;
 					$image_path = 'images/members/' . $filename;
 					Image::make($image_tmp)->fit(1000, 1000)->save($image_path);
-					if ($member->image != "nomedia/nomedia.png") {
-						$deletePath = public_path().'/images/members/'.$member->image;
+					if ($member->image != "images/nomedia/nomedia.png") {
+						$deletePath = public_path().$member->image;
 						if(file_exists($deletePath)){unlink($deletePath);}
 					}
-					$member->image = $filename;
+					$member->image = $image_path;
 				} else {
 					return redirect('/admin/member/show')->with('flash_message_error', 'Update failed due to invalid image file.');
 				}
@@ -125,8 +125,8 @@ class team extends Controller
 		if (Session::has('adminSession')) {
 			$data = $request->all();
 			$member = member::find($data['id']);
-			if ($member->image != "nomedia/nomedia.png") {
-				$deletePath = public_path().'/images/members/'.$member->image;
+			if ($member->image != "images/nomedia/nomedia.png") {
+				$deletePath = public_path().$member->image;
 				if(file_exists($deletePath)){unlink($deletePath);}
 			}
 			echo member::destroy($data['id']);

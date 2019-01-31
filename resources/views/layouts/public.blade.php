@@ -20,9 +20,9 @@
 
         <!-- Navbar -->	
 			
-		<nav class="navbar navbar-expand-sm" id="navbar"><a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo.png') }}"/></a></nav>
+		<nav class="navbar navbar-expand-sm" id="navbar"><a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo/logo.png') }}"/></a></nav>
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex fixed-top" id="navbar">
-		  <a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo.png') }}"/></a>
+		  <a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo/logo.png') }}"/></a>
 		  <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fas fa-bars"></i>
 		  </button>

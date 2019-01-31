@@ -14,3 +14,14 @@
 	margin: 0;
 	text-transform: capitalize;
 }
+
+#multi-gallery img{
+	height: 100px;
+	width:auto;
+	padding: 1px;
+}
+
+#cover-preview img{
+	width:100%;
+	height:auto;
+}

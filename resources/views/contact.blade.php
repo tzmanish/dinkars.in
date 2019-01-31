@@ -3,7 +3,7 @@
 @section('body')
 
 
+@endsection
+@section('js')
 
-
-
-@endsection('body')
+@endsection

@@ -31,14 +31,14 @@
 					</thead>
 					<tbody>
 						@foreach($members as $member)
-							<tr>
+							<tr id="row{{$member->id}}">
 								<td>{{$member->name}}</td>
 								<td>{{$member->role}}</td>
 								<td>
 								<a href="edit/{{$member->id}}" class="btn btn-primary">edit</a>
 								<button  class="btn btn-danger" onclick="deleteMember({{$member->id}})">delete</button>
 								</td>
-								<td><img class="img-thumbnail" width="100px" src="{{asset('images/members/'.$member->image)}}"></td>
+								<td><img class="img-thumbnail" width="100px" src="{{asset($member->image)}}"></td>
 							</tr>
 						@endforeach
 					</tbody>
@@ -53,18 +53,18 @@
 
 function deleteMember(id){
 	if(confirm("Are You Sure? ")){
-		$(this).closest("tr").addClass("d-none")
-		{{-- $.ajax({
+		$.ajax({
 			type:'get',
 			url:'delete',
 			data:{id:id},
 			success:function(resp){
 				$("#error-box").html("<span class='alert-info' role='alert'><i class='fas fa-check-circle'></i> entry deleted</span>");
+				$("#row"+id).remove();
 			}, 
 			error:function(resp){
-				$("#error-box").html("<span class='alert-danger' role='alert'><i class='fas fa-exclamation-circle'></i> error</span>");
+				$("#error-box").html("<span class='alert-danger' role='alert'><i class='fas fa-exclamation-circle'></i> can't delete</span>");
 			}
-		}); --}}
+		});
 	}
 }
 

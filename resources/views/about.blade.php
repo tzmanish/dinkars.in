@@ -12,10 +12,10 @@
 
 					<div class="front">
 						<div class="cover">
-							<img src="{{ asset('images/members/nomedia/nomedia.png') }}" />
+							<img src="{{ asset('images/nomedia/nomedia.png') }}" />
 						</div>
 						<div class="user">
-							<img class="img-circle" src="{{ asset('images/members/nomedia/nomedia.png') }}" />
+							<img class="img-circle" src="{{ asset('images/nomedia/nomedia.png') }}" />
 						</div>
 						<div class="content">
 							<div class="main">
@@ -46,10 +46,10 @@
 
 					<div class="front">
 						<div class="cover">
-							<img src="{{ asset('images/members/nomedia/nomedia.png') }}" />
+							<img src="{{ asset('images/nomedia/nomedia.png') }}" />
 						</div>
 						<div class="user">
-							<img class="img-circle" src="{{ asset('images/members/nomedia/nomedia.png') }}" />
+							<img class="img-circle" src="{{ asset('images/nomedia/nomedia.png') }}" />
 						</div>
 						<div class="content">
 							<div class="main">
@@ -90,19 +90,19 @@
 					<div class="front">
 						<div class="cover">
 							<img src="
-									@if (file_exists(public_path('images/members/'.$member->image)))
-										{{ asset('images/members/'.$member->image) }}
+									@if (file_exists(public_path($member->image)))
+										{{ asset($member->image) }}
 									@else 
-										{{ asset('images/members/nomedia/nomedia.png') }} 
+										{{ asset('images/nomedia/nomedia.png') }} 
 									@endif
 									" />
 						</div>
 						<div class="user">
 							<img class="img-circle" src="
-									@if (file_exists(public_path('images/members/'.$member->image)))
-										{{ asset('images/members/'.$member->image) }}
+									@if (file_exists(public_path($member->image)))
+										{{ asset($member->image) }}
 									@else 
-										{{ asset('images/members/nomedia/nomedia.png') }} 
+										{{ asset('images/nomedia/nomedia.png') }} 
 									@endif
 									" />
 						</div>

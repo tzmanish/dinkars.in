@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Project;
 use App\Type;
+use App\Image as projectimage;
 use Session;
 use Illuminate\Support\Facades\Input;
 use Image;
@@ -18,7 +19,8 @@ class projectController extends Controller
     if (Session::has('adminSession')) {
       if ($request->isMethod('post')) {
         $data = $request->all();
-        // echo "<pre>"; print_r($data); die;
+        // echo "<pre>"; print_r(Input::file('cover')); die;
+
         $project = new project;
         $project->name = $data['name'];
         $project->description = $data['description'];
@@ -27,25 +29,47 @@ class projectController extends Controller
         $project->cost = $data['cost'];
         $project->location = $data['location'];
 
+
+        if (!file_exists('images/projects/'.$data['name'])) {
+          mkdir('images/projects/'.$data['name'], 0777, true);
+        }
+
+
         if ($request->hasFile('cover')) {
           $image_tmp = Input::file('cover');
           if ($image_tmp->isValid()) {
             $extension = $image_tmp->getClientOriginalExtension();
             $filename = rand(111, 99999) . '.' . $extension;
-            $image_path = 'images/projects/' . $filename;
+            $image_path = 'images/projects/'.$data['name'].'/'.$filename;
             Image::make($image_tmp)->fit(1000, 1000)->save($image_path);
           } else {
             return redirect('admin/project/add')->with('flash_message_error', 'Upload failed due to invalid image file.');
           }
         } else {
-          $filename = "nomedia/nomedia.png";
+          $image_path = "images/nomedia/nomedia.png";
         }
-        $project->cover = $filename;
+        $project->cover = $image_path;
 
         $project->save();
-
-        $type = Type::find($data['type']);
-        $project->types()->attach($type);
+        
+        if ($request->has('gallery-upload')) {
+          foreach ($data['gallery-upload'] as $image_tmp) {
+            if ($image_tmp->isValid()) {
+              $extension = $image_tmp->getClientOriginalExtension();
+              $filename = rand(111, 99999) . '.' . $extension;
+              $image_path = 'images/projects/'.$data['name'].'/'. $filename;
+              Image::make($image_tmp)->fit(1920, 1080)->save($image_path);
+              $image = new projectimage;
+              $image->image = $image_path;
+              $project->images()->save($image);
+            }
+          }
+        }
+        
+        if ($request->has('type')) {
+          $type = Type::find($data['type']);
+          $project->types()->attach($type);
+        }
 
         return redirect('admin/project/add')->with('flash_message_success', 'Upload successful.');
       }

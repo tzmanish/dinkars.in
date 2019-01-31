@@ -4,8 +4,10 @@
 
 
 <div class="card bg-dark text-white">
-  <img class="card-img" src="{{ asset('images/projects/'.$project->cover)}}" alt="image">
-  <div class="card-img-overlay">
+  @foreach($project->images as $image)
+  <img height="200px" width="auto" src="{{ asset($image->image)}}" alt="image">
+  @endforeach
+  <div>
     <h5 class="card-title">{{$project->name}}</h5>
     <ul>
     @foreach($project->types as $type)

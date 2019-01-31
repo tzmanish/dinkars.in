@@ -37,6 +37,10 @@ class ComposerStaticInitbeeac2d3502f3c8c48d8dd727119a96b
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'k' => 
+        array (
+            'kartik\\plugins\\fileinput\\' => 25,
+        ),
         'Z' => 
         array (
             'Zend\\Diactoros\\' => 15,
@@ -167,6 +171,10 @@ class ComposerStaticInitbeeac2d3502f3c8c48d8dd727119a96b
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
         ),
         'Zend\\Diactoros\\' => 
         array (
@@ -449,7 +457,7 @@ class ComposerStaticInitbeeac2d3502f3c8c48d8dd727119a96b
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\admin' => __DIR__ . '/../..' . '/app/Http/Controllers/admin.php',
-        'App\\Http\\Controllers\\project' => __DIR__ . '/../..' . '/app/Http/Controllers/project.php',
+        'App\\Http\\Controllers\\projectController' => __DIR__ . '/../..' . '/app/Http/Controllers/projectController.php',
         'App\\Http\\Controllers\\publicController' => __DIR__ . '/../..' . '/app/Http/Controllers/publicController.php',
         'App\\Http\\Controllers\\team' => __DIR__ . '/../..' . '/app/Http/Controllers/team.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -466,7 +474,10 @@ class ComposerStaticInitbeeac2d3502f3c8c48d8dd727119a96b
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\image' => __DIR__ . '/../..' . '/app/image.php',
         'App\\member' => __DIR__ . '/../..' . '/app/member.php',
+        'App\\project' => __DIR__ . '/../..' . '/app/project.php',
+        'App\\type' => __DIR__ . '/../..' . '/app/type.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

@@ -46,7 +46,8 @@ class publicController extends Controller
 		
 		
 	public function detail($id){
-		$project = Project::with('types')->find($id);
+		$project = Project::with('types', 'images')->find($id);
+		// echo "<pre>"; print_r($project); die;
 		$context = [
 			'project'=> $project,
 			'view'=> 'detail',

@@ -77,15 +77,19 @@
 						<div class="form-group row">
 							<label for="cover" class="col-lg-4 col-form-label text-lg-right">{{ __('Cover Image') }}</label>
 
-							<div class="col-lg-4">
-								<input type="file" name="cover" id="cover" class="form-control-file" accept=".jpg,.jpeg,.png">
+							<div class="col-lg-6">
+								<input type="file" name="cover" id="cover" class="form-control-file" onchange="imagesPreview(this, 'div#cover-preview')" accept=".jpg,.jpeg,.png">
 							</div>
+							<div class="col-lg-6 offset-lg-4" id="cover-preview"></div>
+						</div>
 
-							<div class="col-lg-4 col-form-label" id="preview_status"></div>
-
-							<div class="col-lg-6 offset-lg-4" id="preview">
-								<img id="uploadedimage" width="100%" />
+						<div class="form-group row">
+							<label for="gallery-upload" class="col-lg-4 col-form-label text-lg-right">{{ __('Project Images') }}</label>
+				
+							<div class="col-lg-6">
+								<input id="gallery-upload" type="file" class="form-control-file" name="gallery-upload[]" multiple onchange="imagesPreview(this, 'div#multi-gallery')" accept=".jpg,.jpeg,.png">
 							</div>
+							<div class="col-lg-8 offset-lg-2" id="multi-gallery"></div>
 						</div>
 
 						<div class="form-group row">
@@ -124,47 +128,36 @@
 		</div>
 	</div>
 </div>
+<br><br><br><br><br>
 @endsection
  
 @section('js') 
 
-	$(function(){ 
-		document.getElementById("cover").onchange = function(){ 
-			var fileName = document.getElementById("cover").value;
-			var idxDot = fileName.lastIndexOf(".") + 1; 
-			var extFile = fileName.substr(idxDot, fileName.length).toLowerCase(); 
-			if(extFile=="jpg" || extFile=="jpeg" || extFile=="png"){ 
-				var reader = new FileReader(); 
-				reader.onload = function(e){ 
-					if(e.total > 15000000){ 
-						$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Image too large,  maximum allowed size is 15mb.</font>"); 
-						$image = $("#cover");
-						$image.val(""); 
-						$image.wrap('<form>').closest('form').get(0).reset(); 
-						$image.unwrap(); 
-						$('#uploadedimage').removeAttr('src'); 
-						return; 
-					} 
-					$('#preview_status').html("<font color=#28a745><i class='fas fa-check-circle'></i></font>"); document.getElementById("uploadedimage").src = e.target.result; 
-				}; 
-				reader.readAsDataURL(this.files[0]);
-			} 
-			else {
-				$("#preview_status").html("<font color=#dc3545><i class='fas fa-exclamation-triangle'></i> Only jpg/jpeg and png files are allowed!</font>"); 
-				$image = $("#cover"); $image.val("");
-				$image.wrap('<form>').closest('form').get(0).reset(); 
-				$image.unwrap(); 
-				$('#uploadedimage').removeAttr('src'); 
-			} 
-		}; 
 
+// Multiple images preview
 
+function imagesPreview(input, target) {
+  $(target).empty();
+  if (input.files) {
+    var filesAmount = input.files.length;
+    for (i = 0; i < filesAmount; i++) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(target);
+      }
+      reader.readAsDataURL(input.files[i]);
+    }
+  }
+};
+		
+
+//add tag
 
 		$("#submitTag").click(function(event){
 			event.preventDefault();
 			var tag = $("#addTag").val();
 			if(!tag){
-				$("#current_status").html("<font color=#ffc107><i class='fas fa-exclamation-circle'></i> feed me</font>");
+				$("#current_status").html("<font color=#ffc107><i class='fas fa-exclamation-circle'></i> empty</font>");
 				return;
 			}
 			$.ajax({
@@ -176,10 +169,9 @@
 					$('#typeList').append('<label id="typeOption"><input type="checkbox" name="type[]" value="'+resp+'" checked>'+tag+'</label>');
 				}, 
 				error:function(resp){
-					$("#current_status").html("<font color=#28a745><i class='fas fa-exclamation-circle'></i> tag already axist</font>");
+					$("#current_status").html("<font color=#ffc107><i class='fas fa-exclamation-circle'></i> tag already axist</font>");
 				}
 			});
 		});
-	});
 
 @endsection

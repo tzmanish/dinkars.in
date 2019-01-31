@@ -26,7 +26,7 @@
 		
 			<!-- side navigatrion bars -->
 			<div class="nav-side-menu scrollbar-black">
-				<a class="brand" href="{{ url('admin') }}"><img id="logo" src="{{ asset('images/logo.png') }}"/></a>
+				<a class="brand" href="{{ url('admin') }}"><img id="logo" src="{{ asset('images/logo/logo.png') }}"/></a>
 				<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 			  
 				<div class="menu-list">
