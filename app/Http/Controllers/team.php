@@ -52,7 +52,7 @@ class team extends Controller
 		}
 	}
 
-	public function showMembers(Request $request)
+	public function showMembers()
 	{
 		if (Session::has('adminSession')) {
 			$members = Member::all();
@@ -126,10 +126,10 @@ class team extends Controller
 			$data = $request->all();
 			$member = member::find($data['id']);
 			if ($member->image != "images/nomedia/nomedia.png") {
-				$deletePath = public_path().$member->image;
+				$deletePath = public_path().'/'.$member->image;
 				if(file_exists($deletePath)){unlink($deletePath);}
 			}
-			echo member::destroy($data['id']);
+			echo $member->delete();
 			die;
 		} 
 		else {

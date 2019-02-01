@@ -68,7 +68,7 @@
 							<label for="location" class="col-lg-4 col-form-label text-lg-right">{{ __('Location') }}</label>
 							<div class="col-lg-6 input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text" id="gmap">https://example.com/users/</span>
+									<span class="input-group-text" id="gmap">https://www.google.com/maps/</span>
 								</div>
 								<input type="text" class="form-control" id="location" aria-describedby="gmap" name="location">
 							</div>

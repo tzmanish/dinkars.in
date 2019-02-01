@@ -5,7 +5,7 @@
 
 <div class="card bg-dark text-white">
   @foreach($project->images as $image)
-  <img height="200px" width="auto" src="{{ asset($image->image)}}" alt="image">
+  <img height="200px" width="auto" src="{{ asset($image->path)}}" alt="image">
   @endforeach
   <div>
     <h5 class="card-title">{{$project->name}}</h5>
