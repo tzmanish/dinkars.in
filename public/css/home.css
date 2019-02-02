@@ -1,0 +1,11 @@
+.carousel-item img{  
+  display: block;
+  object-fit: cover;
+  height: 86vh;
+}
+
+@media (max-width: 576px) {
+  .carousel-indicators{
+      padding-bottom: 50px;
+  }
+}

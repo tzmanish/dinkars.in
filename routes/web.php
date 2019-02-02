@@ -59,9 +59,11 @@ Route::match(['get', 'post'], 'admin/project/add', 'projectController@addProject
 
 Route::get('admin/project/type/add', 'projectController@addType');
 
+Route::get('admin/project/type/delete', 'projectController@deleteType');
+
 Route::get('admin/project/image/delete', 'projectController@deleteImage');
 
-Route::get('admin/project/show', 'projectController@showProjects'); 
+Route::get('admin/project/show/{type?}', 'projectController@showProjects'); 
 
 Route::get('admin/project/delete', 'projectController@deleteProject'); 
 

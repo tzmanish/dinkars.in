@@ -18,9 +18,13 @@
 	
     <body>
 
-        <!-- Navbar -->	
+    	{{-- dummy Navbar	 --}}
 			
 		<nav class="navbar navbar-expand-sm" id="navbar"><a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo/logo.png') }}"/></a></nav>
+
+		{{-- navbar --}}
+
+
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex fixed-top" id="navbar">
 		  <a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo/logo.png') }}"/></a>
 		  <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,28 +57,28 @@
 		
 		
 		<footer class="text-white bg-dark" id="footer">
-		  <div class="row" id="footer-content">
-			<div class="col-sm text-center align-middle">
-			  <h1>Rohit Dinkar Architects</h1>
-			  <p>CA/2010/40912<p>
-			</div>
-			<div class="col-sm text-center align-middle">
-			  <p>1054 Sch No. 114 Part 2,
-				Behind Bharat Petrol Pump,
-				Off Ring Road, Indore. (M.P.)</p>
-			</div>
-			<div class="col-sm text-center align-middle" id="contact">
-			  <P><i class="fas fa-phone fa-rotate-90"></i><a href="tel:+919826334884"> +91 98263 34884</a></p>
-			  <P><i class="fas fa-envelope"></i><a href="mailto:ar.dinkar@gmail.com" target="_top"> ar.dinkar@gmail.com</a></p>
-			</div>
-			<div class="col-sm">
-				<div class="d-flex justify-content-center" id="social">
-				  <a href="https://www.facebook.com/"><i class="fab fa-facebook-f fa-lg"></i></a>
-				  <a href="https://www.instagram.com/"><i class="fab fa-linkedin-in fa-lg"></i></a>
-				  <a href="https://in.linkedin.com/"><i class="fab fa-instagram fa-lg"></i></a>
+		  	<div class="row" id="footer-content">
+				<div class="col-sm text-center align-middle d-lg-block d-none">
+					<h1>Rohit Dinkar Architects</h1>
+					<p>CA/2010/40912<p>
 				</div>
-			</div>
-		  </div>
+				<div class="col-sm text-center align-middle  d-md-block d-none">
+					<p>1054 Sch No. 114 Part 2,
+					Behind Bharat Petrol Pump,
+					Off Ring Road, Indore. (M.P.)</p>
+				</div>
+				<div class="col-sm text-center align-middle" id="contact">
+					<P><i class="fas fa-phone fa-rotate-90"></i><a href="tel:+919826334884"> +91 98263 34884</a></p>
+					<P><i class="fas fa-envelope"></i><a href="mailto:ar.dinkar@gmail.com" target="_top"> ar.dinkar@gmail.com</a></p>
+				</div>
+				<div class="col-sm">
+					<div class="d-flex justify-content-center" id="social">
+						<a href="https://www.facebook.com/"><i class="fab fa-facebook-f fa-lg"></i></a>
+						<a href="https://www.instagram.com/"><i class="fab fa-linkedin-in fa-lg"></i></a>
+						<a href="https://in.linkedin.com/"><i class="fab fa-instagram fa-lg"></i></a>
+					</div>
+				</div>
+		  	</div>
 		</footer>
 		
 		

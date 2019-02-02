@@ -8,3 +8,11 @@
 	align-self: flex-end;
 	margin-bottom:5px;
 }
+
+#delete-btn{
+	float: right;
+}
+
+#delete-btn:hover{
+	color: red;
+}

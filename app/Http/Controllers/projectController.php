@@ -103,6 +103,16 @@ class projectController extends Controller
 		}
   }
 
+  public function deleteType(Request $request){
+    if (Session::has('adminSession')) {
+        $data = $request->all();
+        type::destroy($data['id']);
+    }
+		else{
+			return redirect('admin')->with('flash_message_error', 'You need to login as administrator to access settings.');
+		}
+  }
+
   public function deleteImage(Request $request){
     if (Session::has('adminSession')) {
         $data = $request->all();
@@ -118,14 +128,22 @@ class projectController extends Controller
 		}
   }
 
-  public function showProjects(){
+  public function showProjects($type = 0){
     if (Session::has('adminSession')) {
-      $projects = Project::all();
-			$count = Project::count();
+      if($type){
+        $projects = Type::with('projects')->find($type)->projects;
+        $curType = Type::find($type)->name;
+      }
+      else{
+        $projects = Project::all();
+        $curType = 'all';
+      }
 			$context = [
-				'count' => $count,
 				'projects' => $projects,
-				'view' => 'showProjects'
+        'view' => 'showProjects',
+        'types' => Type::all(),
+        'allCount' => Project::all()->count(),
+        'currentType' => $curType
 			];
 			return view('auth/showProjects', $context);
     }

@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
 use App\User;
+use App\Charts\dashboard;
+use App\type;
+use Illuminate\Support\Collection;
+use App\project;
 
 class admin extends Controller
 {
@@ -115,8 +119,33 @@ class admin extends Controller
 
     public function dashboard(){
 		if(Session::has('adminSession')){
+
+			Collection::macro('toAssoc', function () {
+				return $this->reduce(function ($assoc, $keyValuePair) {
+					list($key, $value) = $keyValuePair;
+					$assoc[$key] = $value;
+					return $assoc;
+				}, new static);
+			});
+
+			Collection::macro('mapToAssoc', function ($callback) {
+				return $this->map($callback)->toAssoc();
+			});
+
+			$data = type::with('projects')->get()
+			->mapToAssoc(function ($type) {
+				return [$type['name'], count($type['projects'])];    
+			});
+			// echo "<pre>"; print_r($data); die;
+			$chart = new dashboard;
+			$chart->labels($data->keys());
+			$chart->dataset('no of projects (out of '.project::get()->count().')', 'bar', $data->values())
+			->color('#000000');
+			$chart->title("Project type stats");
+
 			$context = [
 				'view'=> 'dashboard',
+				'chart' => $chart
 				];
 			return view('auth/dashboard', $context);
 		}

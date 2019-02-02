@@ -17,10 +17,22 @@
 				@endif
 			</div>
 		</div>
+
+		<div class="dropdown">
+				<button class="btn btn-warning	 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{$currentType}}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item active" href="/admin/project/show">all ({{$allCount}})</a>
+					@foreach ($types as $type)
+						<a class="dropdown-item" href="/admin/project/show/{{$type->id}}" id="type{{$type->id}}">{{$type->name}} ({{$type->projects->count()}})<i class="fas fa-trash-alt" id="delete-btn" onclick="deleteType(event, {{$type->id}})"></i></a>
+					@endforeach
+				</div>
+			</div>
 		<div class="col-md-10">
 			<div class="table-responsive">
 				<table class="table table-borderless table-striped table-hover">
-						<caption class="bg-warning">&nbsp; {{$count}} projects</caption>
+						<caption class="bg-warning">&nbsp; {{$projects->count()}} projects</caption>
 					<thead class="thead-dark">
 						<tr>
 						<th scope="col">Name</th>
@@ -35,7 +47,7 @@
 								<td>{{$project->name}}</td>
 								<td>{{$project->client}}</td>
 								<td>
-								<a href="edit/{{$project->id}}" class="btn btn-primary">edit</a>
+								<a href="/admin/project/edit/{{$project->id}}" class="btn btn-primary">edit</a>
 								<button  class="btn btn-danger" onclick="deleteProject({{$project->id}})">delete</button>
 								</td>
 								<td><img class="img-thumbnail" width="100px" src="{{asset($project->cover)}}"></td>
@@ -55,7 +67,7 @@ function deleteProject(id){
 	if(confirm("Are You Sure? ")){
 		$.ajax({
 			type:'get',
-			url:'delete',
+			url:'/admin/project/delete',
 			data:{id:id},
 			success:function(resp){
 				$("#error-box").html("<span class='alert-info' role='alert'><i class='fas fa-check-circle'></i> entry deleted</span>");
@@ -65,6 +77,24 @@ function deleteProject(id){
 				$("#error-box").html("<span class='alert-danger' role='alert'><i class='fas fa-exclamation-circle'></i> can't delete</span>");
 			}
 		});
+	}
+}
+
+function deleteType(event, id){
+	event.preventDefault();
+	if(confirm("Are You Sure?")){
+		$.ajax({
+			type:'get',
+			url:'/admin/project/type/delete',
+			data:{id:id},
+			success:function(resp){
+				$("#error-box").html("<span class='alert-info' role='alert'><i class='fas fa-check-circle'></i> type deleted</span>");
+				$("#type"+id).remove();
+			}, 
+			error:function(resp){
+				$("#error-box").html("<span class='alert-danger' role='alert'><i class='fas fa-exclamation-circle'></i> can't delete</span>");
+			}
+		}); 
 	}
 }
 
