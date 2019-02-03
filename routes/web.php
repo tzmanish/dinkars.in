@@ -15,7 +15,8 @@
 
 Route::get('/', 'publicController@home');
 
-Route::get('projects', 'publicController@projects');
+Route::get('projects/{type}/{sortby}/{as?}', 'publicController@projects');
+Route::get('projects/{type?}', 'publicController@projects');
 
 Route::get('about', 'publicController@about');
 
@@ -52,6 +53,14 @@ Route::get('admin/member/delete', 'team@deleteMember');
 Route::get('admin/member/edit/{id}', 'team@editMember');
 
 Route::post('admin/member/update', 'team@updateMember');
+
+// featured images
+
+Route::match(['get', 'post'], 'admin/featured/add', 'featuredController@addFeatured');
+
+Route::get('admin/featured/show', 'featuredController@showFeatured');
+
+Route::get('admin/featured/delete', 'featuredController@deleteFeatured');
 
 // projects
 

@@ -23,6 +23,11 @@ class team extends Controller
 				$member->role = $data['role'];
 				$member->description = $data['description'];
 
+				                
+				if (!file_exists('images/members/')) {
+					mkdir('images/members/', 0777, true);
+				}
+
 				if ($request->hasFile('image')) {
 					$image_tmp = Input::file('image');
 					if ($image_tmp->isValid()) {

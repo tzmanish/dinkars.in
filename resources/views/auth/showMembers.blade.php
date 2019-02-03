@@ -17,10 +17,14 @@
 				@endif
 			</div>
 		</div>
+
+		<div class="dropdown">			
+				<a class="btn btn-secondary" href="/admin/member/add" role="button">+</a>
+		</div>
 		<div class="col-md-10">
 			<div class="table-responsive">
 				<table class="table table-borderless table-striped table-hover">
-						<caption class="bg-warning">&nbsp; {{$count}} members</caption>
+						<caption class="bg-secondary text-white">&nbsp; {{$count}} members</caption>
 					<thead class="thead-dark">
 						<tr>
 						<th scope="col">Name</th>

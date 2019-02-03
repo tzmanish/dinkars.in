@@ -113,9 +113,7 @@ class admin extends Controller
 		else{
 			return redirect('admin')->with('flash_message_error', 'You need to login as administrator to access settings.');
 		}
-	}	
-
-
+	}
 
     public function dashboard(){
 		if(Session::has('adminSession')){

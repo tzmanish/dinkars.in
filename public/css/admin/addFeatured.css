@@ -1,0 +1,16 @@
+#error-box{
+	height:120px;
+	display: flex;
+}
+
+#error-box span{
+	padding: 5px;
+	align-self: flex-end;
+	margin-bottom:5px;
+}
+
+#image-preview img{	
+	display: block;
+	object-fit: cover;
+	width: 100%;
+}

@@ -19,20 +19,21 @@
 		</div>
 
 		<div class="dropdown">
-				<button class="btn btn-warning	 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="btn btn-primary	 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					{{$currentType}}
 				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item active" href="/admin/project/show">all ({{$allCount}})</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item @if($currentType=='all') active disabled @endif" href="/admin/project/show">all ({{$allCount}})</a>
 					@foreach ($types as $type)
-						<a class="dropdown-item" href="/admin/project/show/{{$type->id}}" id="type{{$type->id}}">{{$type->name}} ({{$type->projects->count()}})<i class="fas fa-trash-alt" id="delete-btn" onclick="deleteType(event, {{$type->id}})"></i></a>
+						<a class="dropdown-item @if($currentType==$type->name) active disabled @endif" href="/admin/project/show/{{$type->id}}" id="type{{$type->id}}">{{$type->name}} ({{$type->projects->count()}})<i class="fas fa-trash-alt" id="delete-btn" onclick="deleteType(event, {{$type->id}})"></i></a>
 					@endforeach
 				</div>
+				<a class="btn btn-secondary" href="/admin/project/add" role="button">+</a>
 			</div>
 		<div class="col-md-10">
 			<div class="table-responsive">
 				<table class="table table-borderless table-striped table-hover">
-						<caption class="bg-warning">&nbsp; {{$projects->count()}} projects</caption>
+						<caption class="bg-secondary text-white">&nbsp; {{$projects->count()}} projects</caption>
 					<thead class="thead-dark">
 						<tr>
 						<th scope="col">Name</th>

@@ -23,7 +23,7 @@ class CreateProjectsTable extends Migration
             $table->string('cover')->default("nomedia/nomedia.png")->nullable();
             // $table->date('started_on');
             // $table->date('completed_on')->nullable();
-            $table->string('location')->nullable();
+            $table->text('location')->nullable();
             $table->timestamps();
         });
     }

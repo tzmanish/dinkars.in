@@ -199,7 +199,6 @@
 }
 
 #leftpane {
-    background-image: -webkit-linear-gradient(330deg, #ffc107 0%, #f5576c 100%);
     background-image: linear-gradient(120deg, #ffc107 0%, #fd7e14 100%);
     flex: 1;
     overflow-x: hidden;

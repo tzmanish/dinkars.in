@@ -6,22 +6,40 @@ use Illuminate\Http\Request;
 
 use App\Project;
 use App\Member;
+use App\featured;
+use App\type;
 
 class publicController extends Controller
 {
     public function home(){
-		$context = [
-			'view'=> 'home',
-			];
-		return view('home', $context);
+			$featuredImages = featured::get();
+			$context = [
+				'view'=> 'home',
+				'featuredImages' => $featuredImages,
+				];
+			return view('home', $context);
 	}
 		
 		
-	public function projects(){
-		$project_list = Project::get();
+	public function projects($type = 0, $sortby='id', $ad='d'){
+		if($type){
+		  $projects = Type::with('projects')->find($type)->projects;
+		  $curType = Type::find($type)->name;
+		}
+		else{
+		  $projects = Project::all();
+		  $curType = 'all';
+		}
+		if($ad=='a'){$sorted = $projects->sortBy($sortby);}
+		else{$sorted = $projects->sortByDesc($sortby);}
 		$context = [
-			'project_list'=> $project_list,
+			'projects'=> $sorted,
+			'sorting' => $sortby.$ad,
 			'view'=> 'projects',
+			'types' => Type::all(),
+			'allCount' => Project::all()->count(),
+			'currentType' => $curType,
+			'urlid' => $type
 			];
 		return view('projects', $context);
 	}
