@@ -21,6 +21,7 @@ class team extends Controller
 				$member = new Member;
 				$member->name = $data['name'];
 				$member->role = $data['role'];
+				$member->qualification = $data['qualification'];
 				$member->description = $data['description'];
 
 				                

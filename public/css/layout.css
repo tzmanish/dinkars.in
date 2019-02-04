@@ -8,6 +8,11 @@ html{height:100%;}
 	padding: 3px 20px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
+	color: white;
+}
+
+li:not(#active) #navlink:hover{
+	background-color: #fa625f;
 }
 
 #navbar-toggler{
@@ -15,7 +20,7 @@ html{height:100%;}
 }
 
 #active{
-	background-color: #f8f9fa;
+	background-color: #fbf579;	
 }
 
 body{
@@ -27,9 +32,9 @@ body{
 
 #content{
   flex: 1;
-  overflow-y: auto;
-  overflow-x:hidden;
+  overflow:auto;
   width:100%;
+  padding-bottom:5rem;
 }
 
 #logo{
@@ -43,10 +48,11 @@ body{
 
 #footer {
 	position: fixed;
-	left: 0;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
+	padding: 10px;
+	z-index: 200;
 }
 
 #footer h1{
@@ -79,18 +85,60 @@ body{
 
 .scrollbar-black::-webkit-scrollbar-track{
 	-webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
-	background-color: #F5F5F5;
+	background-color: white;
 	border-radius: 1px;
 }
 
 .scrollbar-black::-webkit-scrollbar{
 	width: 2px;
-	background-color: #F5F5F5;
+	background-color: white;
 }
 
 .scrollbar-black::-webkit-scrollbar-thumb{
 	border-radius: 1px;
-	-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
-	background-image: -webkit-linear-gradient(330deg, #ffc107 0%, #f5576c 100%);
-	background-image: linear-gradient(120deg, #ffc107 0%, #fd7e14 100%);
+	background-color: #fa625f;
+}
+
+.bg-black{
+	background-color: #000000;
+}
+
+.txt-black{
+	color: black !important;
+}
+
+.txt-pink{
+	color: #fa625f;
+}
+
+.txt-black:hover{
+	color: #fa625f !important;
+}
+
+.bg-yellow{
+	background-color: #fbf579;
+}
+
+.bg-pink{
+	background-color: #fa625f;
+}
+
+.bg-blue{
+	background-color: #005995;
+}
+
+.btnblack {
+    color: white !important;
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.btnpink {
+    color: white !important;
+    background-color: #fa625f !important;
+    border-color: #fa625f !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #fa625f !important;
 }

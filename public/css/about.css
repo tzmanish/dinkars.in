@@ -70,7 +70,6 @@
 .card {
     border-radius: 4px;
     border: none !important;
-    max-width: 14rem;
     margin: auto;
 }
 
@@ -117,7 +116,7 @@
     margin: auto;
 }
 
-.back p{
+.back p {
     font-style: italic;
     font-weight: 500;
     font-size: 14px;
@@ -150,7 +149,8 @@
 
 .card .motto {
     border-bottom: 1px solid #eeeeee;
-    color: #999999;
+    color: white;
+    background-color: #fa625f;
     font-size: 14px;
     font-weight: 400;
     padding: 8px;
@@ -189,6 +189,7 @@
 
 #content {
     display: flex;
+    padding-bottom: 4rem;
 }
 
 #full-height {
@@ -199,7 +200,6 @@
 }
 
 #leftpane {
-    background-image: linear-gradient(120deg, #ffc107 0%, #fd7e14 100%);
     flex: 1;
     overflow-x: hidden;
 }
@@ -210,6 +210,12 @@
     overflow-x: hidden;
 }
 
-h1 {
-    font-weight: 200 !important;
+#memberspane h5{
+    font-weight: 400;
+}
+
+@media (max-width: 992px) {
+    #memberspane{
+        padding-bottom : 20rem;
+    }
 }

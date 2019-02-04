@@ -46,10 +46,12 @@ class publicController extends Controller
 		
 		
 	public function about(){
-		$team = Member::get();
+		$team = Member::where('isadmin', false)->get();
+		$admins = Member::where('isadmin', true)->get();
 		$context = [
 			'view'=> 'about',
 			'team'=> $team,
+			'admins' => $admins,
 			];
 		return view('about', $context);
 	}

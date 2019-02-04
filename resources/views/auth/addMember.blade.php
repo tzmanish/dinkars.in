@@ -34,7 +34,15 @@
                             <label for="role" class="col-lg-4 col-form-label text-lg-right">{{ __('Role') }}</label>
 
                             <div class="col-lg-6">
-                                <input id="role" type="text" placeholder="Civil Engineer/ Interior Designer etc." class="form-control" name="role" required>
+                                <input id="role" type="text" placeholder="Civil Engineer/ Interior Designer etc." class="form-control" name="role">
+                            </div>
+						</div>
+
+                        <div class="form-group row">
+                            <label for="qualification" class="col-lg-4 col-form-label text-lg-right">{{ __('Qualification') }}</label>
+
+                            <div class="col-lg-6">
+                                <input id="qualification" type="text" placeholder="Undergraduate / Graduate / Masters" class="form-control" name="qualification">
                             </div>
 						</div>
 												

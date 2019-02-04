@@ -1,18 +1,18 @@
 @extends('layouts/public') 
 @section('title', 'Projects') 
 @section('body')
-<div class="row bg-light" style="padding-top:20px;">
+<div class="row bg-yellow" style="padding-top:20px;">
 	<div id="filters">
 		<span>
 			Type: 
-			<button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="typeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn btn-sm btn-danger btnpink dropdown-toggle" type="button" id="typeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				{{$currentType}}
 			</button>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="typeDropdownButton">
-				<a class="dropdown-item @if($currentType=='all') active disabled @endif" href="/projects">all ({{$allCount}})</a>
+				<a class="dropdown-item @if($currentType=='all')disabled @endif" href="/projects">all ({{$allCount}})</a>
 				@foreach ($types as $type)
 					@if($type->projects->count())
-						<a class="dropdown-item @if($currentType==$type->name) active disabled @endif" href="/projects/{{$type->id}}" id="type{{$type->id}}">{{$type->name}} ({{$type->projects->count()}})</a>
+						<a class="dropdown-item @if($currentType==$type->name) disabled @endif" href="/projects/{{$type->id}}" id="type{{$type->id}}">{{$type->name}} ({{$type->projects->count()}})</a>
 					@endif
 				@endforeach
 			</div>
@@ -21,7 +21,7 @@
 	<div id="filters">
 		<span>
 			Sort By: 
-			<button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="sortDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn btn-sm btnpink btn-danger dropdown-toggle" type="button" id="sortDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				@switch($sorting)
 					@case('namea')
 						Name (A-Z)

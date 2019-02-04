@@ -17,8 +17,10 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('image')->default("nomedia/nomedia.png");
+            $table->string('qualification')->nullable();
 			$table->string('role')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('isadmin')->default(false);
             $table->timestamps();
         });
     }

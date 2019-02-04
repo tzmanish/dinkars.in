@@ -29,7 +29,7 @@
 		{{-- navbar --}}
 
 
-		<nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex fixed-top" id="navbar">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-black d-flex fixed-top" id="navbar">
 		  <a class="navbar-brand" href="/"  id="logo"><img src="{{ asset('images/logo/logo.png') }}"/></a>
 		  <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fas fa-bars"></i>
@@ -38,16 +38,16 @@
 		  <div class="collapse navbar-collapse align-self-end" id="navbarSupportedContent" >
 			<ul class="navbar-nav ml-auto">
 			  <li @if($view == 'home') id="active" @endif >
-				<a class="nav-link @if($view == 'home') text-dark @endif" href="/" id="navlink">Home</a>
+				<a class="nav-link @if($view == 'home') txt-black @endif" href="/" id="navlink">Home</a>
 			  </li>
 			  <li @if($view == 'projects' or $view == 'detail') id="active" @endif >
-				<a class="nav-link @if($view == 'projects' or $view == 'detail') text-dark @endif " href="/projects" id="navlink">Projects</a>
+				<a class="nav-link @if($view == 'projects' or $view == 'detail') txt-black @endif " href="/projects" id="navlink">Projects</a>
 			  </li>
 			  <li @if($view == 'about' ) id="active" @endif >
-				<a class="nav-link @if($view == 'about') text-dark @endif " href="/about" id="navlink">About</a>
+				<a class="nav-link @if($view == 'about') txt-black @endif " href="/about" id="navlink">About</a>
 			  </li>
 			  <li @if($view == 'contact' ) id="active" @endif >
-				<a class="nav-link @if($view == 'contact') text-dark @endif " href="/contact" id="navlink">Contact</a>
+				<a class="nav-link @if($view == 'contact') txt-black @endif " href="/contact" id="navlink">Contact</a>
 			  </li>
 			</ul>
 		  </div>
@@ -60,7 +60,7 @@
 		</main>
 		
 		
-		<footer class="text-white bg-dark d-block" id="footer">
+		<footer class="text-white bg-black d-block" id="footer">
 		  	<div class="row" id="footer-content">
 				<div class="col-sm text-center align-middle d-lg-block d-none">
 					<h1>Rohit Dinkar Architects</h1>

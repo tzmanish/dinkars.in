@@ -6,6 +6,26 @@
 
 @media (max-width: 576px) {
   .carousel-indicators{
-      padding-bottom: 50px;
+      padding-bottom: 15vh !important;
   }
+}
+
+.carousel-indicators{
+  padding-bottom: 10px;
+}
+
+.carousel-caption h5{
+  text-transform: capitalize;
+}
+
+.carousel-caption{
+  background: #fa625f;
+  width: 100%;
+  right: auto !important;
+  left: auto !important;
+  padding: 0 15%;
+}
+
+#content{
+  overflow: hidden;
 }

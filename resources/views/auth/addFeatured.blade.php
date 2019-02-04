@@ -33,7 +33,7 @@
 							<label for="title" class="col-lg-4 col-form-label text-lg-right">{{ __('Title') }}</label>
 
 							<div class="col-lg-6">
-								<input id="title" type="text" class="form-control" name="title" required autofocus>
+								<input id="title" type="text" class="form-control" name="title">
 							</div>
 						</div>
 

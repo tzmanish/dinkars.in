@@ -2,7 +2,7 @@
 @section('title', 'Detail') 
 @section('body')
 
-<div class="bg-light" id="titlebox">
+<div class="bg-yellow" id="titlebox">
 	<h2>{{$project->name}}</h2>
 	@php
 		$colors=['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
@@ -13,7 +13,8 @@
 </div>
 <div class="row">
 	<div class="col-xl-8">
-		<div id="carouselIndicators" class="carousel slide bg-dark" data-ride="carousel">
+		<br>
+		<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				@foreach($project->images as $image)
 				<li data-target="#carouselIndicators" data-slide-to="{{$loop->index}}" @if($loop->first) class="active" @endif></li>
@@ -35,6 +36,7 @@
 			<span class="sr-only">Next</span>
 			</a>
 		</div>
+		<br>
 	</div>
 	<div class="col-xl-4" id="details">
 		<h6>{{$project->description}}</h6>

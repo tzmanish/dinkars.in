@@ -17,7 +17,7 @@ class CreateFeaturedImagesTable extends Migration
             $table->increments('id');
             $table->string('path')->unique();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('project_id')->unsigned()->nullable();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();

@@ -1,0 +1,42 @@
+
+
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:85vh;
+    width:100%;
+    position:absolute;
+}
+
+#content {
+    display: flex;
+}
+
+#full-height {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+}
+
+#leftpane {
+    flex: 1;
+    overflow-x: hidden;
+}
+
+
+#content{
+    padding-bottom : 6vh;
+}
+
+@media (max-width: 767px) {
+    .map-responsive iframe{
+        height: 45vh;
+    }
+    .map-responsive{
+        height: 45vh;
+    }
+    .rightpane{
+        padding-bottom: 150px;
+    }
+}
