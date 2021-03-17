@@ -19,19 +19,19 @@ The principal architect (Mr. Rohit Dinkar) wanted a platform to showcase their p
 ## Approach
 
 The content is devided in four tabs:  
-![tabs.jpg](tabs.jpg)
+![tabs.jpg](readme/tabs.jpg)
 
 1. Home  
     - An image carousel to showcase hot projects and contact info.
     - The images can be added/removed/deactivated from the admin dashboard.
-    - ![homepage](home.jpg)
+    - ![homepage](readme/home.jpg)
 
 2. Projects  
     - Projects can be added/removed/updated/deactiveted from the admin dashboard.
     - Can be sorted based on various attributes like site area, budget etc.
     - Can be filtered based on tags, Admin can provide multiple tags for each project.
-    - ![Projects](Projects.jpg)
-    - ![Details](details.jpg)
+    - ![Projects](readme/projects.jpg)
+    - ![Details](readme/details.jpg)
 
 3. About
     - Cards for each team member.
@@ -39,7 +39,7 @@ The content is devided in four tabs:
 
 4. Contact
     - To get customer comments and reviews.
-    - ![Contact](contact.jpg)
+    - ![Contact](readme/contact.jpg)
 
 ## Admin Pannel
 
